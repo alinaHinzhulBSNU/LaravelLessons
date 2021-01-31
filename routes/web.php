@@ -24,6 +24,8 @@ Route::get('/admin/users/{id}/delete', 'UserRightController@destroy')->middlewar
 
 Route::get('/books-json', "BooksController@getList");
 Route::get('books/author/{id}', "BooksController@index");
+//DOWNLOAD LIST OF BOOKS
+Route::get('/books/download', "BooksController@download");
 
 Auth::routes();
 

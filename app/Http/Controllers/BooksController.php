@@ -6,6 +6,7 @@ use App\Book;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
+use PDF;
 
 class BooksController extends Controller
 {
@@ -100,4 +101,16 @@ class BooksController extends Controller
             return redirect("author/".$athr."/books");
         }
     }
+    
+    //Download list of books in PDF
+    public function download(){
+        $books = \App\Book::all()->sortBy("name");
+
+        $pdf = PDF::loadView('books/download', [
+            'books' => $books,
+        ]);
+
+        return $pdf->download('books.pdf');
+    }
+
 }

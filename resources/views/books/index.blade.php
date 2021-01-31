@@ -28,6 +28,7 @@
 
 	@can('add', App\Book::class)
 		<a href="/author/{{ $author_filter_id }}/books/create" class="btn btn-outline-success float-left" style="margin-bottom: 20px; margin-top: 10px;">Додати книгу</a>
+		<a href="/books/download" class="btn btn-warning float-left" style="margin-left: 20px; margin-bottom: 20px; margin-top: 10px;">Завантажити PDF</a>
 	@endcan
 	
 	<table class="table table-striped table-dark">
