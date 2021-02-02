@@ -42,7 +42,7 @@ class AuthorController extends Controller
         return $this->validate($data, [
             'authorName' => ['required', 'max:100'],
             'country' => ['required', 'min:3', 'max:100'],
-            'book_id' => ['required', Rule::exists('books', 'id')],
+            //'book_id' => ['required', Rule::exists('books', 'id')],
         ], [
             'authorName.required' => 'Ім`я автора має бути заповнене!',
             'authorName.max' => 'Ім`я автора має бути не більше 100 символів!',
