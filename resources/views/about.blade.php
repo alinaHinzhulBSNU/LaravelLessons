@@ -4,6 +4,6 @@
 
 @section("page-content")
 
-	<p>This is an Laravel app for keeping track of books in an e-library! :)</p>
+	<p>This is a Laravel app for keeping track of books in an e-library! :D</p>
 
 @endsection
