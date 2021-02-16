@@ -26,22 +26,6 @@
 				'errFieldName' => 'country',
 			])
 		</div>
-		<div class="form-group">
-			<label for="book">Найвідоміша книга</label>
-			<select class="browser-default custom-select" name="book_id">
-				<option selected disabled value="0">
-					Оберіть книгу
-				</option>
-				@foreach($books as $book)
-					<option value="{{ $book->id }}">
-						{{ $book->name }}
-					</option>
-				@endforeach
-			</select>
-			@include("includes/validationError", [
-				'errFieldName' => 'book_id',
-			])
-		</div>
 
 		<button type="submit" class="btn btn-primary">Додати</button>
 

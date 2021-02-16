@@ -29,22 +29,6 @@
 				'errFieldName' => 'country',
 			])
 		</div>
-		<div class="form-group">
-			<label for="book">Найвідоміша книга</label>
-			<select class="browser-default custom-select" name="book_id">
-				<option disabled value="0">
-					Оберіть книгу
-				</option>
-				@foreach($books as $book)
-					<option @if($author->book->id == $book->id) selected @endif value="{{ $book->id }}">
-						{{ $book->name }}
-					</option>
-				@endforeach
-			</select>
-			@include("includes/validationError", [
-				'errFieldName' => 'book_id',
-			])
-		</div>
 		<button type="submit" class="btn btn-primary">Змінити</button>
 		@can('delete', App\Author::class)
 			<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Видалити</button>
