@@ -25,7 +25,7 @@
 		<nav class="navbar navbar-expand-lg navbar-light bg-light pb-3 pt-3">
 			<a class="navbar-brand" href="/">
 				<i class="fas fa-book-open"></i>
-				@yield("app-title", "Довідник книг")
+				<span>@yield("app-title", "Довідник книг")</span>
 			</a>
 
 			<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
