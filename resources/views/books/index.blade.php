@@ -9,7 +9,7 @@
 @endsection
 
 @section("page-content")
-	<div class="form-group" style="margin-top: 20px;">
+	<div class="form-group">
 		<select class="browser-default custom-select" name="book-author-filter" id="book-author-filter">
 			<option value="0">Всі автори</option>
 			@foreach($authors as $author)
@@ -27,32 +27,36 @@
 	</div>
 
 	@can('add', App\Book::class)
-		<a href="/author/{{ $author_filter_id }}/books/create" class="btn btn-outline-success float-left" style="margin-bottom: 20px; margin-top: 10px;">Додати книгу</a>
-		<a href="/books/download" class="btn btn-warning float-left" style="margin-left: 20px; margin-bottom: 20px; margin-top: 10px;">Завантажити PDF</a>
+		<a href="/author/{{ $author_filter_id }}/books/create" class="btn btn-success mb-4">Додати книгу</a>
+		<a href="/books/download" class="btn btn-warning mb-4">Завантажити PDF</a>
 	@endcan
 	
-	<table class="table table-striped table-dark">
-		<tr>
-			<th scope="col">Назва</th>
-			<th scope="col">Автор</th>
-			<th></th>
-			<th></th>
-		</tr>
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th scope="col">Назва</th>
+				<th scope="col">Автор</th>
+				<th></th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
 		@foreach($books as $book)
 			<tr>
 				<td>{{ $book->name }}</td>
 				<td>{{ $book->author->authorName }}</td>
 				<td>
 				@can('view', App\Book::class)
-					<a href="/author/{{ $author_filter_id }}/books/{{ $book->id }}" class="btn btn-outline-secondary">Переглянути</a>
+					<a href="/author/{{ $author_filter_id }}/books/{{ $book->id }}" class="btn btn-secondary">Переглянути</a>
 				@endcan
 				</td>
 				<td>
 				@can('update', App\Book::class)
-					<a href="/author/{{ $author_filter_id }}/books/{{ $book->id }}/edit" class="btn btn-outline-primary">Редагувати</a>
+					<a href="/author/{{ $author_filter_id }}/books/{{ $book->id }}/edit" class="btn btn-primary">Редагувати</a>
 				@endcan
 				</td>
 			</tr>
 		@endforeach
+		</tbody>
 	</table>
 @endsection

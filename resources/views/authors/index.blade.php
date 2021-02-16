@@ -6,9 +6,9 @@
 @section("page-content")
 
 @can('add', App\Author::class)
-	<a href="/authors/create" class="btn btn-outline-success float-left" style="margin-bottom: 20px; margin-top: 10px;">Додати автора</a>
+	<a href="/authors/create" class="btn btn-success mb-4">Додати автора</a>
 @endcan
-<table class="table table-striped table-dark">
+<table class="table table-hover">
 	<thead>
 		<tr>
 			<th scope="col">Ім'я</th>
@@ -25,17 +25,17 @@
 			<td>{{ $author->country }}</td>
 			<td>
 			@can('view', App\Author::class)
-				<a href="/authors/{{ $author->id }}" class="btn btn-outline-secondary">Переглянути</a>
+				<a href="/authors/{{ $author->id }}" class="btn btn-secondary">Переглянути</a>
 			@endcan
 			</td>
 			<td>
 			@can('view', App\Author::class)
-				<a href="/author/{{ $author->id }}/books" class="btn btn-outline-info">Книги</a>
+				<a href="/author/{{ $author->id }}/books" class="btn btn-info">Книги</a>
 			@endcan
 			</td>
 			<td>
 			@can('update', App\Author::class)
-				<a href="/authors/{{ $author->id }}/edit" class="btn btn-outline-primary">Редагувати</a>
+				<a href="/authors/{{ $author->id }}/edit" class="btn btn-primary">Редагувати</a>
 			@endcan
 			</td>
 		</tr>

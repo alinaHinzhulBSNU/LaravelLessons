@@ -9,7 +9,7 @@
 @section("page-content")
 <p class="lead"></p>
 <p class="lead">
-	<a href="/author/0/books" class="btn btn-lg btn-secondary">Книги</a>
-	<a href="/authors" class="btn btn-lg btn-secondary">Автори</a>
+	<a href="/author/0/books" class="btn btn-primary">Книги</a>
+	<a href="/authors" class="btn btn-primary">Автори</a>
 </p>
 @endsection
