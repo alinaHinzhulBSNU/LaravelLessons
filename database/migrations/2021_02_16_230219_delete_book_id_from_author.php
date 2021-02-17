@@ -14,7 +14,11 @@ class DeleteBookIdFromAuthor extends Migration
     public function up()
     {
         Schema::table('authors', function (Blueprint $table) {
-            $table->dropForeign('authors_book_id_foreign');
+            if (DB::getDriverName() !== 'sqlite') {
+                Schema::table('authors', function (Blueprint $table) {
+                    $table->dropForeign('authors_book_id_foreign');
+                });
+            }
             $table->dropColumn('book_id');
         });
     }

@@ -51,6 +51,7 @@ class BooksController extends Controller
                 'name' => $data['book-name'],
                 'author_id' => $data['book-author'],
             ]);
+
             return redirect("author/".$athr."/books");
         }
     }
