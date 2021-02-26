@@ -8,11 +8,11 @@
 @can('add', App\Author::class)
 	<a href="/authors/create" class="btn btn-success mb-4">Додати автора</a>
 @endcan
-<table class="table table-hover">
+<table class="table table-hover table-bordered">
 	<thead>
 		<tr>
-			<th scope="col">Ім'я</th>
-			<th scope="col">Країна</th>
+			<th class="text-center align-middle" scope="col">Ім'я</th>
+			<th class="text-center align-middle" scope="col">Країна</th>
 			<th scope="col"></th>
 			<th scope="col"></th>
 			<th scope="col"></th>
@@ -21,19 +21,19 @@
 	<tbody>
 		@foreach($authors as $author)
 		<tr>
-			<td>{{ $author->authorName }}</td>
-			<td>{{ $author->country }}</td>
-			<td>
+			<td class="text-left align-middle">{{ $author->authorName }}</td>
+			<td class="text-left align-middle">{{ $author->country }}</td>
+			<td class="text-center align-middle">
 			@can('view', App\Author::class)
 				<a href="/authors/{{ $author->id }}" class="btn btn-secondary">Переглянути</a>
 			@endcan
 			</td>
-			<td>
+			<td class="text-center align-middle">
 			@can('view', App\Author::class)
 				<a href="/author/{{ $author->id }}/books" class="btn btn-info">Книги</a>
 			@endcan
 			</td>
-			<td>
+			<td class="text-center align-middle">
 			@can('update', App\Author::class)
 				<a href="/authors/{{ $author->id }}/edit" class="btn btn-primary">Редагувати</a>
 			@endcan

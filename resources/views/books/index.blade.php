@@ -31,11 +31,11 @@
 		<a href="/books/download" class="btn btn-warning mb-4">Завантажити PDF</a>
 	@endcan
 	
-	<table class="table table-hover">
+	<table class="table table-hover table-bordered">
 		<thead>
 			<tr>
-				<th scope="col">Назва</th>
-				<th scope="col">Автор</th>
+				<th class="text-center align-middle" scope="col">Назва</th>
+				<th class="text-center align-middle" scope="col">Автор</th>
 				<th></th>
 				<th></th>
 			</tr>
@@ -43,14 +43,14 @@
 		<tbody>
 		@foreach($books as $book)
 			<tr>
-				<td>{{ $book->name }}</td>
-				<td>{{ $book->author->authorName }}</td>
-				<td>
+				<td class="text-left align-middle">{{ $book->name }}</td>
+				<td class="text-left align-middle">{{ $book->author->authorName }}</td>
+				<td class="text-center align-middle">
 				@can('view', App\Book::class)
 					<a href="/author/{{ $author_filter_id }}/books/{{ $book->id }}" class="btn btn-secondary">Переглянути</a>
 				@endcan
 				</td>
-				<td>
+				<td class="text-center align-middle">
 				@can('update', App\Book::class)
 					<a href="/author/{{ $author_filter_id }}/books/{{ $book->id }}/edit" class="btn btn-primary">Редагувати</a>
 				@endcan
