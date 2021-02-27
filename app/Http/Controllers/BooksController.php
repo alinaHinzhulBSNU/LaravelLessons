@@ -6,6 +6,7 @@ use App\Book;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 use PDF;
 
 class BooksController extends Controller
@@ -20,6 +21,7 @@ class BooksController extends Controller
             'author_filter_id', $request->route('authorid')
         );
     }
+
     public function index($athr){
         if($this->author){
             $books = $this->author->books->sortBy("name");
@@ -33,18 +35,17 @@ class BooksController extends Controller
                 'authors' => \App\Author::all()->sortBy('authorName'),
     	]);
     }
-    public function getList(){
-    	return \App\Book::all();
-    }
+
     public function create($athr){
-        if(Auth::user() && Auth::user()->can('add', Book::class)){
+        if(Gate::allows('admin')){
             return view('books/create', [
                 'authors' => \App\Author::all()->sortBy('authorName'),
             ]);
         }
     }
+
     public function store($athr){
-        if(Auth::user() && Auth::user()->can('update', Book::class)){
+        if(Gate::allows('admin')){
             $data = $this->validateData(\request());
 
             \App\Book::create([
@@ -55,8 +56,9 @@ class BooksController extends Controller
             return redirect("author/".$athr."/books");
         }
     }
+
     public function edit($athr, \App\Book $book){
-        if(Auth::user() && Auth::user()->can('update', Book::class)){
+        if(Gate::allows('admin')){
             return view("books/edit", [
                 'book' => $book,
                 'authors' => \App\Author::all()->sortBy('authorName'),
@@ -65,8 +67,9 @@ class BooksController extends Controller
             return redirect("author/".$athr."/books");
         }
     }
+
     public function update($athr, \App\Book $book){
-        if(Auth::user() && Auth::user()->can('update', Book::class)){
+        if(Gate::allows('admin')){
             $data = $this->validateData(\request());
 
             $book->name = $data['book-name'];
@@ -77,29 +80,20 @@ class BooksController extends Controller
             return redirect("author/".$athr."/books");
         }
     }
-    private function validateData($data){
-        return $this->validate($data, [
-            'book-name' => ['required', 'max:100'],
-            'book-author' => ['required', Rule::exists('authors', 'id')],
-        ], [
-            'book-name.required' => 'Назва книги має бути заповнена!',
-            'book-name.max' => 'Назва книги має бути більше 100 символів!',
-            'book-author.required' => "Ім'я автора має бути заповнене!",
-            'book-author.exists' => "Ви обрали неіснуючу групу!",
-        ]);
-    }
-    public function destroy($athr, \App\Book $book){
-        if(Auth::user() && Auth::user()->can('delete', Book::class)){
-            $book->delete();
-        }
-    }
+
     public function show($athr, \App\Book $book){
-        if(Auth::user() && Auth::user()->can('view', Book::class)){
+        if(Gate::allows('admin')){
             return view("books/show", [
                 'book' => $book,
             ]);
         }else{
             return redirect("author/".$athr."/books");
+        }
+    }
+
+    public function destroy($athr, \App\Book $book){
+        if(Gate::allows('admin')){
+            $book->delete();
         }
     }
     
@@ -114,4 +108,16 @@ class BooksController extends Controller
         return $pdf->download('books.pdf');
     }
 
+    //VALIDATION
+    private function validateData($data){
+        return $this->validate($data, [
+            'book-name' => ['required', 'max:100'],
+            'book-author' => ['required', Rule::exists('authors', 'id')],
+        ], [
+            'book-name.required' => 'Назва книги має бути заповнена!',
+            'book-name.max' => 'Назва книги має бути більше 100 символів!',
+            'book-author.required' => "Ім'я автора має бути заповнене!",
+            'book-author.exists' => "Ви обрали неіснуючу групу!",
+        ]);
+    }
 }

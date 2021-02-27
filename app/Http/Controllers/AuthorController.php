@@ -6,17 +6,14 @@ use App\Author;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class AuthorController extends Controller
 {
     public function __construct(){
         $this->middleware('auth');
     }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         return view("authors/index", [
@@ -24,20 +21,66 @@ class AuthorController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        if(Auth::user() && Auth::user()->can('add', Author::class)){
+        if(Gate::allows('admin')){
             return view("authors/create", [
                 "books"=>\App\Book::all()->sortBy("name"),
             ]);
         }
     }
 
+    public function store()
+    {
+        if(Gate::allows('admin')){
+            $data = $this->ValidateData(\request());
+            \App\Author::create($data);
+        }
+
+        return redirect("/authors");
+    }
+
+    public function edit(Author $author)
+    {
+        if(Gate::allows('admin')){
+            return view('authors/edit', [
+                'author' => $author,
+                'books'=>$author->books->sortBy('name'),
+            ]);
+        }else{
+            return redirect('/authors');
+        }
+    }
+
+    public function update(Author $author)
+    {
+        if(Gate::allows('admin')){
+            $data = $this->ValidateData(\request());
+
+            $author->authorName = $data['authorName'];
+            $author->country = $data['country'];
+    
+            $author->save();
+        }
+
+        return redirect('/authors');
+    }
+
+    public function show(Author $author)
+    {
+        return view('authors/show', [
+            'author' => $author,
+        ]);
+    }
+
+    public function destroy(Author $author)
+    {
+        if(Gate::allows('admin')){
+            $author->delete();
+        }
+    }
+
+    //VALIDATION
     private function ValidateData($data){
         return $this->validate($data, [
             'authorName' => ['required', 'max:100'],
@@ -49,85 +92,5 @@ class AuthorController extends Controller
             'country.min' => "Назва країни не має бути менше 3 символів!",
             'country.max' => "Назва країни не має бути більше 100 символів!",
         ]);
-    }
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        if(Auth::user() && Auth::user()->can('update', Author::class)){
-            $data = $this->ValidateData(\request());
-            \App\Author::create($data);
-            return redirect("/authors");  
-        } 
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Author  $author
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Author $author)
-    {
-        if(Auth::user() && Auth::user()->can('view', Author::class)){
-            return view('authors/show', [
-                'author' => $author,
-            ]);
-        }else{
-            return redirect('authors/');
-        }
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Author  $author
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Author $author)
-    {
-        if(Auth::user() && Auth::user()->can('update', Author::class)){
-            return view('authors/edit', [
-                'author' => $author,
-                'books'=>$author->books->sortBy('name'),
-            ]);
-        }else{
-            return redirect('authors/');
-        }
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Author  $author
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Author $author)
-    {
-        $data = $this->ValidateData(\request());
-
-        $author->authorName = $data['authorName'];
-        $author->country = $data['country'];
-
-        $author->save();
-        return redirect('/authors');
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Author  $author
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Author $author)
-    {
-        if(Auth::user() && Auth::user()->can('delete', Author::class)){
-            $author->delete();
-        }
     }
 }

@@ -5,7 +5,7 @@
 @endsection
 
 @section("page-title")
-	{{ $pageTitle }}
+	{{ $pageTitle }} 
 @endsection
 
 @section("page-content")
