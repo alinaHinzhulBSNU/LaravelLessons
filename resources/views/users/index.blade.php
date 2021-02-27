@@ -11,7 +11,7 @@
 	
 	<table class="table table-hover table-bordered">
 		<input type="hidden" name="_method" value="edit" />
-		<thead>
+		<thead class="bg-info">
 			<tr>
 				<th class="text-center align-middle" scope="col">Модель</th>
 				<th class="text-center align-middle" scope="col">Право</th>

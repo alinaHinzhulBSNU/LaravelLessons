@@ -32,7 +32,7 @@
 	@endcan
 	
 	<table class="table table-hover table-bordered">
-		<thead>
+		<thead class="bg-info">
 			<tr>
 				<th class="text-center align-middle" scope="col">Назва</th>
 				<th class="text-center align-middle" scope="col">Автор</th>

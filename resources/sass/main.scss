@@ -1,3 +1,6 @@
+$color: #02495d;
+$light: #f7f4e5;
+
 $theme-colors: (
   "primary": #c0c350,
   "secondary": #81821c,
@@ -6,8 +9,7 @@ $theme-colors: (
   "warning": #ffea47,
   "danger": #ffad88,
 );
-$color: #02495d;
-$light: #f7f4e5;
+
 
 $body-bg: #ffffff;
 $body-color: $color;
@@ -42,6 +44,11 @@ html{
     }
     .main-content{
       flex: 1 0 auto;
+      .table-hover tbody tr{
+        &:hover{
+          background-color: #fff8bf !important;
+        }
+    }
     }
     footer{
       flex: 0 0 auto;

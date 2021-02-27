@@ -9,7 +9,7 @@
 	<a href="/authors/create" class="btn btn-success mb-4">Додати автора</a>
 @endcan
 <table class="table table-hover table-bordered">
-	<thead>
+	<thead class="bg-info">
 		<tr>
 			<th class="text-center align-middle" scope="col">Ім'я</th>
 			<th class="text-center align-middle" scope="col">Країна</th>
@@ -30,7 +30,7 @@
 			</td>
 			<td class="text-center align-middle">
 			@can('view', App\Author::class)
-				<a href="/author/{{ $author->id }}/books" class="btn btn-info">Книги</a>
+				<a href="/author/{{ $author->id }}/books" class="btn btn-success">Книги</a>
 			@endcan
 			</td>
 			<td class="text-center align-middle">
