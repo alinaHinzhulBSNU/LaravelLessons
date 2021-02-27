@@ -39,7 +39,7 @@
 					<li class="nav-item">
 						<a class="nav-link" href="/author/0/books">Книги</a>
 					</li>
-					@can('admin-panel')
+					@can('admin')
 						<li class="nav-item">
 							<a class="nav-link" href="/admin/users">Адмін.панель</a>
 						</li>
