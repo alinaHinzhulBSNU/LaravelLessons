@@ -95,7 +95,7 @@ class BooksController extends Controller
     //Download list of books in PDF
     public function download()
     {
-        $books = \App\Book::all()->sortBy("name");
+        $books = Book::all()->sortBy("name");
 
         $pdf = PDF::loadView('books/download', [
             'books' => $books,

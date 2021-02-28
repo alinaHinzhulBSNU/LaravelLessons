@@ -127,6 +127,18 @@ class BooksTest extends TestCase
         $response->assertRedirect('/login');
     }
 
+    //Test download function
+    /** @test */
+    public function logged_in_users_can_download_book(){
+        $this->actingAsUser();
+        $response = $this->get('/books/download')->assertOk();
+    }
+
+    /** @test */
+    public function logged_out_users_can_not_download_book(){
+        $response = $this->get('/books/download')->assertRedirect('/login');;
+    }
+
     // Supporting functions
     private function actingAsAdmin()
     {

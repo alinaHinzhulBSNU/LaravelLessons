@@ -15,7 +15,6 @@
 			<th class="text-center align-middle" scope="col">Країна</th>
 			<th scope="col"></th>
 			<th scope="col"></th>
-			<th scope="col"></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -26,11 +25,6 @@
 			<td class="text-center align-middle">
 			@can('view', App\Author::class)
 				<a href="/authors/{{ $author->id }}" class="btn btn-secondary">Переглянути</a>
-			@endcan
-			</td>
-			<td class="text-center align-middle">
-			@can('view', App\Author::class)
-				<a href="/author/{{ $author->id }}/books" class="btn btn-success">Книги</a>
 			@endcan
 			</td>
 			<td class="text-center align-middle">
