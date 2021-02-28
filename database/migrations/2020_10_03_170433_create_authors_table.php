@@ -17,10 +17,7 @@ class CreateAuthorsTable extends Migration
             $table->id();
             $table->string("authorName", 100);
             $table->string("country", 100);
-            $table->unsignedBigInteger("book_id");
             $table->timestamps();
-
-            $table->foreign("book_id")->references("id")->on("books");
         });
     }
 

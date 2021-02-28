@@ -4,30 +4,30 @@
 @section("page-title", "Редагувати книгу")
 
 @section("page-content")
-	<form class="text-left" method="post" action="/author/{{ $author_filter_id }}/books/{{ $book->id }}">
+	<form class="text-left" method="post" action="/books/{{ $book->id }}">
 		@csrf
 		{{ method_field("patch") }}
 		<div class="form-group">
 			@include("includes/input", [
-				'fieldId' => 'book-name',
+				'fieldId' => 'name',
 				'labelText' => 'Назва',
 				'placeholderText' => 'Введіть назву',
 				'fieldValue' => $book->name,
 			])
 			@include("includes/validationError", [
-				'errFieldName' => 'book-name',
+				'errFieldName' => 'name',
 			])
 		</div>
 		<div class="form-group">
 			<label for="book-author">Автор</label>
-			<select class="browser-default custom-select" name="book-author">
+			<select class="browser-default custom-select" name="author_id">
 				<option selected disabled value="0">Оберіть автора</option>
 				@foreach($authors as $author)
 					<option @if($book->author->id == $author->id) selected @endif value="{{ $author->id }}">{{  $author->authorName }}</option>
 				@endforeach
 			</select>
 			@include("includes/validationError", [
-				'errFieldName' => 'book-author',
+				'errFieldName' => 'author_id',
 			])
 		</div>
 		<button type="submit" class="btn btn-primary">Змінити</button>
@@ -73,14 +73,14 @@
 			$("#delete-book").click(function(){
 				var id = {!! $book->id !!};
 				$.ajax({
-					url: '/author/{{ $author_filter_id }}/books/' + id,
+					url: '/books/' + id,
 					type: 'post',
 					data: {
 						_method: 'delete',
 						_token: "{!! csrf_token() !!}"
 					},
 					success:function(msg){
-						location.href="/author/{{ $author_filter_id }}/books";
+						location.href="/books";
 					}
 				});
 			});

@@ -135,7 +135,8 @@ class AuthorsTest extends TestCase
         $this->actingAs($user);
     }
 
-    private function data(){
+    private function data()
+    {
         return [
             "authorName" => "testing",
             "country" => "testing",

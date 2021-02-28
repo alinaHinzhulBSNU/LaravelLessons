@@ -4,24 +4,24 @@
 @section("page-title", "Додати книгу")
 
 @section("page-content")
-	<form class="text-left" method="post" action="/author/{{ $author_filter_id }}/books">
+	<form class="text-left" method="post" action="/books">
 		{{ csrf_field() }}
 		<div class="form-group">
 			@include("includes/input", [
-				'fieldId' => 'book-name',
+				'fieldId' => 'name',
 				'labelText' => 'Назва',
 				'placeholderText' => 'Введіть назву',
 			])
 			@include("includes/validationError", [
-				'errFieldName' => 'book-name',
+				'errFieldName' => 'name',
 			])
 		</div>
 		<div class="form-group">
-			<label for="book-author">Автор</label>
-			<select class="browser-default custom-select" name="book-author">
+			<label for="author_id">Автор</label>
+			<select class="browser-default custom-select" name="author_id">
 				<option selected disabled value="0">Оберіть автора</option>
 				@foreach($authors as $author)
-					<option value="{{ $author->id }}" @if($author_filter_id == $author->id) selected @endif>{{  $author->authorName }}</option>
+					<option value="{{ $author->id }}">{{  $author->authorName }}</option>
 				@endforeach
 			</select>
 		</div>

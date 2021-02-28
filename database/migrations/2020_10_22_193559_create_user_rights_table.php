@@ -17,9 +17,14 @@ class CreateUserRightsTable extends Migration
             $table->bigIncrements('id');
             $table->string('model', 20);
             $table->string('right', 10);
-            $table->unsignedBigInteger('user_id');
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users');
+
+            $table->unsignedBigInteger('user_id');
+
+            $table->foreign('user_id')
+            ->references('id')
+            ->on('users')
+            ->onDelete('cascade');
         });
     }
 

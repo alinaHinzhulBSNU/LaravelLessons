@@ -10,7 +10,8 @@ use Illuminate\Support\Facades\Gate;
 
 class AuthorController extends Controller
 {
-    public function __construct(){
+    public function __construct()
+    {
         $this->middleware('auth');
     }
 
@@ -34,7 +35,7 @@ class AuthorController extends Controller
     {
         if(Gate::allows('admin')){
             $data = $this->ValidateData(\request());
-            \App\Author::create($data);
+            Author::create($data);
         }
 
         return redirect("/authors");

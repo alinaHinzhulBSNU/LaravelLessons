@@ -37,7 +37,7 @@
 						<a class="nav-link" href="/authors">Автори</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="/author/0/books">Книги</a>
+						<a class="nav-link" href="/books">Книги</a>
 					</li>
 					@can('admin')
 						<li class="nav-item">

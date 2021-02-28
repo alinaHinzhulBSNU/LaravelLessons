@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', "PagesController@home")->middleware('dinner');
 Route::get('/about', "PagesController@about");
 
-Route::resource("author/{authorid}/books", "BooksController");
+Route::resource("/books", "BooksController");
 Route::resource("/authors", "AuthorController");
 
 Route::resource("/admin/users", "UserRightController")->middleware('admin');
