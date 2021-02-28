@@ -100,7 +100,7 @@ class BooksTest extends TestCase
 
         $response = $this->delete('/books/'.$book->id);
 
-        $this->assertCount(1, Author::all());
+        $this->assertCount(1, Book::all());
         $response->assertRedirect('/books');
     }
 
