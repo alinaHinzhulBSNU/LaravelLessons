@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="" tests="22" assertions="47" errors="0" warnings="0" failures="0" skipped="0" time="0.989270">
+    <testsuite name="Feature" tests="22" assertions="47" errors="0" warnings="0" failures="0" skipped="0" time="0.989270">
+      <testsuite name="Tests\Feature\AuthorsTest" file="C:\Users\User\Desktop\OSPanel\domains\lab1\tests\Feature\AuthorsTest.php" tests="10" assertions="20" errors="0" warnings="0" failures="0" skipped="0" time="0.543216">
+        <testcase name="logged_in_users_can_see_authors_list" class="Tests\Feature\AuthorsTest" classname="Tests.Feature.AuthorsTest" file="C:\Users\User\Desktop\OSPanel\domains\lab1\tests\Feature\AuthorsTest.php" line="17" assertions="1" time="0.306855"/>
+        <testcase name="logged_out_users_can_not_see_authors_list" class="Tests\Feature\AuthorsTest" classname="Tests.Feature.AuthorsTest" file="C:\Users\User\Desktop\OSPanel\domains\lab1\tests\Feature\AuthorsTest.php" line="24" assertions="2" time="0.028143"/>
+        <testcase name="an_author_can_be_stored_by_admin" class="Tests\Feature\AuthorsTest" classname="Tests.Feature.AuthorsTest" file="C:\Users\User\Desktop\OSPanel\domains\lab1\tests\Feature\AuthorsTest.php" line="31" assertions="3" time="0.027666"/>
+        <testcase name="an_author_can_not_be_stored_by_user" class="Tests\Feature\AuthorsTest" classname="Tests.Feature.AuthorsTest" file="C:\Users\User\Desktop\OSPanel\domains\lab1\tests\Feature\AuthorsTest.php" line="40" assertions="3" time="0.020951"/>
+        <testcase name="an_author_can_be_updated_by_admin" class="Tests\Feature\AuthorsTest" classname="Tests.Feature.AuthorsTest" file="C:\Users\User\Desktop\OSPanel\domains\lab1\tests\Feature\AuthorsTest.php" line="50" assertions="3" time="0.022621"/>
+        <testcase name="an_author_can_not_be_updated_by_user" class="Tests\Feature\AuthorsTest" classname="Tests.Feature.AuthorsTest" file="C:\Users\User\Desktop\OSPanel\domains\lab1\tests\Feature\AuthorsTest.php" line="64" assertions="3" time="0.023935"/>
+        <testcase name="an_author_can_be_deleted_by_admin" class="Tests\Feature\AuthorsTest" classname="Tests.Feature.AuthorsTest" file="C:\Users\User\Desktop\OSPanel\domains\lab1\tests\Feature\AuthorsTest.php" line="79" assertions="1" time="0.028610"/>
+        <testcase name="an_author_can_not_be_deleted_by_user" class="Tests\Feature\AuthorsTest" classname="Tests.Feature.AuthorsTest" file="C:\Users\User\Desktop\OSPanel\domains\lab1\tests\Feature\AuthorsTest.php" line="91" assertions="1" time="0.025386"/>
+        <testcase name="logged_in_users_can_see_author" class="Tests\Feature\AuthorsTest" classname="Tests.Feature.AuthorsTest" file="C:\Users\User\Desktop\OSPanel\domains\lab1\tests\Feature\AuthorsTest.php" line="104" assertions="1" time="0.029337"/>
+        <testcase name="logged_out_users_can_not_see_author" class="Tests\Feature\AuthorsTest" classname="Tests.Feature.AuthorsTest" file="C:\Users\User\Desktop\OSPanel\domains\lab1\tests\Feature\AuthorsTest.php" line="116" assertions="2" time="0.029712"/>
+      </testsuite>
+      <testsuite name="Tests\Feature\BooksTest" file="C:\Users\User\Desktop\OSPanel\domains\lab1\tests\Feature\BooksTest.php" tests="12" assertions="27" errors="0" warnings="0" failures="0" skipped="0" time="0.446053">
+        <testcase name="logged_in_users_can_see_books_list" class="Tests\Feature\BooksTest" classname="Tests.Feature.BooksTest" file="C:\Users\User\Desktop\OSPanel\domains\lab1\tests\Feature\BooksTest.php" line="18" assertions="1" time="0.029576"/>
+        <testcase name="logged_out_users_can_not_see_books_list" class="Tests\Feature\BooksTest" classname="Tests.Feature.BooksTest" file="C:\Users\User\Desktop\OSPanel\domains\lab1\tests\Feature\BooksTest.php" line="25" assertions="2" time="0.025441"/>
+        <testcase name="a_book_can_be_stored_by_admin" class="Tests\Feature\BooksTest" classname="Tests.Feature.BooksTest" file="C:\Users\User\Desktop\OSPanel\domains\lab1\tests\Feature\BooksTest.php" line="32" assertions="3" time="0.023485"/>
+        <testcase name="a_book_can_not_be_stored_by_user" class="Tests\Feature\BooksTest" classname="Tests.Feature.BooksTest" file="C:\Users\User\Desktop\OSPanel\domains\lab1\tests\Feature\BooksTest.php" line="43" assertions="3" time="0.023157"/>
+        <testcase name="a_book_can_be_updated_by_admin" class="Tests\Feature\BooksTest" classname="Tests.Feature.BooksTest" file="C:\Users\User\Desktop\OSPanel\domains\lab1\tests\Feature\BooksTest.php" line="53" assertions="3" time="0.025871"/>
+        <testcase name="a_book_can_not_be_updated_by_user" class="Tests\Feature\BooksTest" classname="Tests.Feature.BooksTest" file="C:\Users\User\Desktop\OSPanel\domains\lab1\tests\Feature\BooksTest.php" line="67" assertions="3" time="0.023922"/>
+        <testcase name="a_book_can_be_deleted_by_admin" class="Tests\Feature\BooksTest" classname="Tests.Feature.BooksTest" file="C:\Users\User\Desktop\OSPanel\domains\lab1\tests\Feature\BooksTest.php" line="82" assertions="3" time="0.022658"/>
+        <testcase name="a_book_can_not_be_deleted_by_user" class="Tests\Feature\BooksTest" classname="Tests.Feature.BooksTest" file="C:\Users\User\Desktop\OSPanel\domains\lab1\tests\Feature\BooksTest.php" line="95" assertions="3" time="0.022092"/>
+        <testcase name="logged_in_users_can_see_book" class="Tests\Feature\BooksTest" classname="Tests.Feature.BooksTest" file="C:\Users\User\Desktop\OSPanel\domains\lab1\tests\Feature\BooksTest.php" line="109" assertions="1" time="0.023292"/>
+        <testcase name="logged_out_users_can_not_see_book" class="Tests\Feature\BooksTest" classname="Tests.Feature.BooksTest" file="C:\Users\User\Desktop\OSPanel\domains\lab1\tests\Feature\BooksTest.php" line="121" assertions="2" time="0.021140"/>
+        <testcase name="logged_in_users_can_download_book" class="Tests\Feature\BooksTest" classname="Tests.Feature.BooksTest" file="C:\Users\User\Desktop\OSPanel\domains\lab1\tests\Feature\BooksTest.php" line="132" assertions="1" time="0.179835"/>
+        <testcase name="logged_out_users_can_not_download_book" class="Tests\Feature\BooksTest" classname="Tests.Feature.BooksTest" file="C:\Users\User\Desktop\OSPanel\domains\lab1\tests\Feature\BooksTest.php" line="138" assertions="2" time="0.025584"/>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testsuites>
