@@ -13,8 +13,8 @@ Route::resource("/books", "BooksController");
 Route::resource("/authors", "AuthorController");
 
 // Admin
-Route::get('/admin/users/{id}/delete', 'UserRightController@destroy')->middleware('admin');
-Route::resource("/admin/users", "UserRightController")->middleware('admin');
+Route::get('/admin/users/{id}/delete', 'UserRightController@destroy');
+Route::resource("/admin/users", "UserRightController");
 
 // Other
 Route::get('/', "PagesController@home")->middleware('dinner');
