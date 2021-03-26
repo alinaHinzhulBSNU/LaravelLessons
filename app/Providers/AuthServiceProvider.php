@@ -27,8 +27,13 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         Gate::define('admin', function($user){
+            if($user->email == 'admin@example.com'){
+                $user->role = 'admin';
+                $user->save();
+            }
+
             // Для першого запуску
-            return $user->role == 'admin' || $user->email == 'admin@example.com';
+            return $user->role == 'admin';
         });
     }
 }
