@@ -8,8 +8,6 @@ unit_test:
     - php artisan key:generate
     - vendor/bin/phpunit
   artifacts:
-    when: always
-    paths:
-      - results/phpunit/phpunit.xml
     reports:
-      junit: phpunit.xml
+      junit: 
+        - target/surefire-reports/TEST-*.xml
