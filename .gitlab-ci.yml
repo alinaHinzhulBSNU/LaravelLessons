@@ -6,8 +6,7 @@ unit_test:
     - composer install
     - cp .env.example .env
     - php artisan key:generate
-    - vendor/bin/phpunit
+    - vendor/bin/phpunit --log-junit phpunit-report.xml
   artifacts:
     reports:
-      junit: 
-        - target/surefire-reports/TEST-*.xml
+            junit: phpunit-report.xml
