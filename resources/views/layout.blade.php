@@ -18,6 +18,9 @@
 	<title>
 		@yield("app-title", "Довідник книг")
 	</title>
+
+	<!--Favicon-->
+	<link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
 </head>
 	
 <body>
@@ -27,6 +30,10 @@
 				<i class="fas fa-book-open"></i>
 				<span>@yield("app-title", "Довідник книг")</span>
 			</a>
+
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    			<span class="navbar-toggler-icon"></span>
+  			</button>
 
 			<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
 				<ul class="navbar-nav">

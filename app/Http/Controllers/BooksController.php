@@ -20,14 +20,6 @@ use PDF;
  */
 class BooksController extends Controller
 {
-    /**
-     * Автор, якому налажать книги
-     * 
-     * Якщо буде задане фільтрування, то дана змінна буде використана
-     * 
-     * @var Author $author
-     */
-    private $author;
     
     /**
      * Конструктор контролера
