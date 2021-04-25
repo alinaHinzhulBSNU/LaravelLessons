@@ -2,6 +2,7 @@ unit_test:
   image: composer:latest
   stage: test
   script:
+    - composer update
     - composer install
     - cp .env.example .env
     - php artisan key:generate
