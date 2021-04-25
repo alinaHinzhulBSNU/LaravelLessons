@@ -10,6 +10,6 @@ unit_test:
   artifacts:
     when: always
     paths:
-      - rspec.xml
+      - results/phpunit/phpunit.xml
     reports:
-      junit: rspec.xml
+      junit: phpunit.xml
