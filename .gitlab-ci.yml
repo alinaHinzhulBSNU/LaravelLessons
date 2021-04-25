@@ -7,3 +7,9 @@ unit_test:
     - cp .env.example .env
     - php artisan key:generate
     - vendor/bin/phpunit
+  artifacts:
+    when: always
+    paths:
+      - rspec.xml
+    reports:
+      junit: rspec.xml
