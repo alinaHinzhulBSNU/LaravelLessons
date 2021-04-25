@@ -1,4 +1,5 @@
 unit_test:
+  image: composer:latest
   stage: test
   script:
     - composer install
